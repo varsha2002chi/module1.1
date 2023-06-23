@@ -1,21 +1,18 @@
  #include <stdio.h>
+ #include <stdlib.h>
 
 int main() {
-    int arr[] = {64, 84, 21, 36, 17, 90, 77, 5, 10, 48, 69};
-    int evenSum = 0;
-    int oddSum = 0;
-    int length = sizeof(arr) / sizeof(arr[0]);
-
-    for (int i = 0; i < length; i++) {
-        if (i % 2 == 0) {
-            evenSum += arr[i];
-        } else {
-            oddSum += arr[i];
-        }
-    }
-
-    printf("Sum of even indexed elements: %d\n", evenSum);
-    printf("Sum of odd indexed elements: %d\n", oddSum);
-
+    char timeStr[100];
+    int hours, minutes, seconds;
+    printf("Enter time in the format hh:mm:ss: ");
+    fgets(timeStr, sizeof(timeStr), stdin);
+    
+    sscanf(timeStr, "%d:%d:%d", &hours, &minutes, &seconds);
+    
+    int totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    
+    printf("Total seconds: %d\n", totalSeconds);
+    
     return 0;
 }
+
